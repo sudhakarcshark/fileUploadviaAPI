@@ -4,6 +4,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
@@ -24,7 +25,7 @@ public class ThirdPartyService {
 
         HttpPost post = new HttpPost(thirdPartyApiUrl);
 
-        MultipartEntityBuilder builder = new MultipartEntityBuilder();
+        MultipartEntityBuilder builder = MultipartEntityBuilder.create();
 
         builder.addBinaryBody("file", file.getInputStream(), ContentType.MULTIPART_FORM_DATA, file.getOriginalFilename());
         builder.addTextBody("templateId", templateId, ContentType.TEXT_PLAIN);
