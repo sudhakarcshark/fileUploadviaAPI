@@ -17,13 +17,13 @@ import java.io.IOException;
 @Service
 public class ThirdPartyService {
 
-    @Value("${thirdparty.api.url}")
-    private String thirdPartyApiUrl;
+    @Value("${Dctrl.api.url}")
+    private String DctrlApiUrl;
 
     public String uploadFile(MultipartFile file, String templateId, String memberNumber, String clientId,
                              String updatePlatform, String accountType, String reportType) throws IOException {
 
-        HttpPost post = new HttpPost(thirdPartyApiUrl);
+        HttpPost post = new HttpPost(DctrlApiUrl);
 
         MultipartEntityBuilder builder = MultipartEntityBuilder.create();
 
